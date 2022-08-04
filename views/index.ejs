@@ -1,0 +1,39 @@
+<%- include('./_partials/_head.ejs') %>
+
+<div class="container">
+  <div class="card my-3">
+    <div class="card-header py-2">
+      <h5 class="mb-0">Banks</h5>
+    </div>
+    <div class="card-body">
+      <div class="table-responsive p-1">
+        <table class="table table-bordered table-striped table-sm" id="example" style="width: 100%">
+          <thead>
+            <tr>
+              <th scope="col">Username</th>
+              <th scope="col">Name</th>
+              <th scope="col">Email</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% if(banks.length>0) { %> <% banks.forEach(bank=> { %>
+            <tr>
+              <td><%= bank.username %></td>
+              <td><%= bank.first_name %></td>
+              <td><%= bank.email %></td>
+            </tr>
+            <% }) %> <% } %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  $(document).ready(function () {
+    let table = $("#example").DataTable();
+  });
+</script>
+
+<%- include('./_partials/_footer.ejs') %>
